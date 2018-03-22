@@ -4,6 +4,7 @@ import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.core.TopicExchange;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -26,7 +27,7 @@ public class TopicRabbitConfig {
     }
 
     @Bean
-    Binding bindingExchangeErrors(Queue queueErrors, TopicExchange exchange) {
+    Binding bindingExchangeErrors(@Qualifier("queueErrors") Queue queueErrors, TopicExchange exchange) {
         return BindingBuilder.bind(queueErrors).to(exchange).with("error.msg-inbox");
     }
 

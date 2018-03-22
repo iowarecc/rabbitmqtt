@@ -12,7 +12,7 @@ public class TopicRecvLogs {
 
     Logger logger = LoggerFactory.getLogger(TopicRecvLogs.class);
 
-    @RabbitHandler
+    @RabbitHandler()
     public void process(String s) {
         logger.info("info: "+ s);
     }
