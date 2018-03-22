@@ -17,8 +17,8 @@ public class TopicTest {
 
     @Test
     public void topicSend() throws Exception {
-        topicSender.send0();
         topicSender.send1();
         topicSender.send2();
+        topicSender.send3();
     }
 }

@@ -7,7 +7,7 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
 @Component
-@RabbitListener(queues = "abc.error")
+@RabbitListener(queues = "msg-inbox-errors")
 public class TopicRecvError {
 
     Logger logger = LoggerFactory.getLogger(TopicRecvError.class);

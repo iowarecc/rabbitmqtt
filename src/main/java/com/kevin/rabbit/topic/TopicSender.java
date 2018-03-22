@@ -14,21 +14,21 @@ public class TopicSender {
     @Autowired
     AmqpTemplate rabbitTemplate;
 
-    public void send0() {
-        String content = "topic, send x";
-        logger.info("send: "+ content);
-        this.rabbitTemplate.convertAndSend("my-topic-exchange", "abc.x", content);
-    }
-
     public void send1() {
-        String content = "topic, send info";
-        logger.info("send: "+ content);
-        this.rabbitTemplate.convertAndSend("my-topic-exchange", "abc.info", content);
+        String content = "topic, send errors";
+        logger.info("send1: "+ content);
+        this.rabbitTemplate.convertAndSend("my-topic-exchange", "error.msg-inbox", content);
     }
 
     public void send2() {
-        String content = "topic, send infos infos";
-        logger.info("send: "+ content);
-        this.rabbitTemplate.convertAndSend("my-topic-exchange", "abc.error", content);
+        String content = "topic, send warn";
+        logger.info("send2: "+ content);
+        this.rabbitTemplate.convertAndSend("my-topic-exchange", "warn.msg-inbox", content);
+    }
+
+    public void send3() {
+        String content = "topic, send info";
+        logger.info("send3: "+ content);
+        this.rabbitTemplate.convertAndSend("my-topic-exchange", "info.msg-inbox", content);
     }
 }

@@ -7,10 +7,10 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
 @Component
-@RabbitListener(queues = "abc.info")
-public class TopicRecvInfo {
+@RabbitListener(queues = "msg-inbox-logs")
+public class TopicRecvLogs {
 
-    Logger logger = LoggerFactory.getLogger(TopicRecvInfo.class);
+    Logger logger = LoggerFactory.getLogger(TopicRecvLogs.class);
 
     @RabbitHandler
     public void process(String s) {

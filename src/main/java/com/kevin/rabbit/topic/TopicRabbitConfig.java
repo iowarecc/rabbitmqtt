@@ -10,18 +10,14 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class TopicRabbitConfig {
 
-    final static String info = "abc.info";
-
-    final static String error = "abc.error";
-
     @Bean
-    public Queue queueInfo() {
-        return new Queue(TopicRabbitConfig.info);
+    public Queue queueErrors() {
+        return new Queue("msg-inbox-errors");
     }
 
     @Bean
-    public Queue queueError() {
-        return new Queue(TopicRabbitConfig.error);
+    public Queue queueLogs() {
+        return new Queue("msg-inbox-logs");
     }
 
     @Bean
@@ -30,13 +26,13 @@ public class TopicRabbitConfig {
     }
 
     @Bean
-    Binding bindingExchangeInfo(Queue queueInfo, TopicExchange exchange) {
-        return BindingBuilder.bind(queueInfo).to(exchange).with("abc.#");
+    Binding bindingExchangeErrors(Queue queueErrors, TopicExchange exchange) {
+        return BindingBuilder.bind(queueErrors).to(exchange).with("error.msg-inbox");
     }
 
     @Bean
-    Binding bindingExchangeError(Queue queueError, TopicExchange exchange) {
-        return BindingBuilder.bind(queueError).to(exchange).with("abc.error");
+    Binding bindingExchangeError(Queue queueLogs, TopicExchange exchange) {
+        return BindingBuilder.bind(queueLogs).to(exchange).with("*.msg-inbox");
     }
 
 }
