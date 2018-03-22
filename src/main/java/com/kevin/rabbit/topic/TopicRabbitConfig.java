@@ -38,4 +38,5 @@ public class TopicRabbitConfig {
     Binding bindingExchangeError(Queue queueError, TopicExchange exchange) {
         return BindingBuilder.bind(queueError).to(exchange).with("abc.error");
     }
+
 }

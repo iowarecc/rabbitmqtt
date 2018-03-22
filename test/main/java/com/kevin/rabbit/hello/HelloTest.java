@@ -10,6 +10,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = MqttApp.class)
 public class HelloTest {
+
     @Autowired
     private HelloSender helloSender;
 

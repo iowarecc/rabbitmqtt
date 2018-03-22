@@ -8,12 +8,12 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RabbitListener(queues = "abc.info")
-public class TopicReceiveInfo {
+public class TopicRecvInfo {
 
-    Logger logger = LoggerFactory.getLogger(TopicReceiveInfo.class);
+    Logger logger = LoggerFactory.getLogger(TopicRecvInfo.class);
 
     @RabbitHandler
     public void process(String s) {
-        logger.info("receive info: "+ s);
+        logger.info("info: "+ s);
     }
 }

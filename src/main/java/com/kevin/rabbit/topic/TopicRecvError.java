@@ -8,12 +8,12 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RabbitListener(queues = "abc.error")
-public class TopicReceiveError {
+public class TopicRecvError {
 
-    Logger logger = LoggerFactory.getLogger(TopicReceiveError.class);
+    Logger logger = LoggerFactory.getLogger(TopicRecvError.class);
 
     @RabbitHandler
     public void process(String s) {
-        logger.error("receive error: "+ s);
+        logger.error("error: "+ s);
     }
 }
