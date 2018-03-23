@@ -2,6 +2,7 @@ package com.kevin.rabbit.hello;
 
 import com.kevin.rabbit.MqttApp;
 import com.kevin.rabbit.topic.TopicSender;
+import com.kevin.rabbit.topic2.TSender;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,5 +21,13 @@ public class TopicTest {
         topicSender.send1();
         topicSender.send2();
         topicSender.send3();
+    }
+
+    @Autowired
+    TSender tSender;
+
+    @Test
+    public void t2Send() throws Exception {
+        tSender.send();
     }
 }
